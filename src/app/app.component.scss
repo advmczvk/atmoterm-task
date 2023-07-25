@@ -7,7 +7,7 @@
   position: fixed;
   margin-left: 0;
   margin-top: 4rem;
-  z-index: 1;
+  z-index: 2;
 }
 .footer {
   display: block;
@@ -16,18 +16,26 @@
   height: 10vh;
   width: 80vw;
   z-index: 0;
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+    width: 100vw;
+  }
 }
 
 .top-bar {
   position: fixed;
   width: 100vw;
-  z-index: 2;
+  z-index: 1;
 }
 
 .viewport {
   margin-left: 20vw;
   padding-top: 4rem;
   min-height: calc(90vh - (4rem * 1.4));
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 
   * {
     margin: 0 2rem;

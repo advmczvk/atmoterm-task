@@ -1,4 +1,14 @@
-<div class="container">
+<div
+  class="hamburger-lines"
+  [ngClass]="isOpen ? 'active' : ''"
+  (click)="toggleMenu()"
+>
+  <span class="line line1"></span>
+  <span class="line line2"></span>
+  <span class="line line3"></span>
+</div>
+
+<div class="container" [ngClass]="isOpen ? 'active' : ''">
   <ul>
     <li>
       <a routerLink="/" routerLinkActive="active">
