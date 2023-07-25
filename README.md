@@ -1,6 +1,6 @@
 # Live demo
 
-The p
+Live demo is available on [Netlify](https://atmoterm-task-advmczvk.netlify.app/).
 
 # AtmotermTask
 
