@@ -1,0 +1,9 @@
+<div class="card" *ngIf="product" [style.background-color]="product.color">
+  <div class="main">
+    <img src="{{ product.img }}" alt="{{ product.imgAlt }}" />
+    <h5 class="card-title">{{ product.name }}</h5>
+  </div>
+  <span id="learn-more" [style.background-color]="product.darkerColor">
+    <h6><a [routerLink]="'product/' + product.id">Dowiedz się więcej -></a></h6>
+  </span>
+</div>

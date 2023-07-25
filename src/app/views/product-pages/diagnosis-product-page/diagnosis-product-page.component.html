@@ -1,0 +1,87 @@
+<div class="container">
+  <span id="back"><a routerLink=""><- Wróć do oferty</a></span>
+  <div class="product-description" *ngIf="product">
+    <div class="header">
+      <h5>{{ product.field }} - {{ product.name }}</h5>
+      <h1>{{ product.name }}</h1>
+    </div>
+    <div class="hashtags">
+      <a href="" class="hashtag" *ngFor="let hashtag of product.hashtags">
+        #{{ hashtag }}
+      </a>
+    </div>
+    <div class="description">
+      <p>
+        E-usługa <b>Dynamiczna Mapa Jakości Powietrza</b> wspiera prowadzenie
+        właściwej polityki informacyjnej oraz podejmowanie odpowiednich decyzji,
+        poprzez pokazanie stanu jakości powietrza w dowolnie wybranym miejscu, w
+        czasie rzeczywistym i w niedalekiej przyszłości. <br /><br />
+        Narzędzie umożliwia:
+      </p>
+
+      <ul>
+        <li>
+          identyfikację źródeł odpowiedzialnych za złą jakość powietrza i
+          określenie ich wpływu na stężenie poszczególnych substancji na danym
+          terenie;
+        </li>
+        <li>
+          raportowanie aktualnej i prognozowanej jakości powietrza dla dzielnic,
+          szkół, przedszkoli itp. oraz planowanie aktywności na zewnątrz;
+        </li>
+        <li>
+          prowadzenie właściwej polityki informacyjnej; e podniesienie
+          świadomości ekologicznej mieszkańców.
+        </li>
+      </ul>
+    </div>
+
+    <button (click)="openDialog(order)">Zamów pełną wersję</button>
+  </div>
+  <img src="../../../../assets/img/Prognozowanie.png" />
+</div>
+
+<ng-template #order id="order">
+  <div class="modal-container" *ngIf="currentUser && product">
+    <h2>
+      {{ currentUser.firstName }}
+      {{ currentUser.lastName | firstLetterOnly }}, zamów pełną wersję e-usługi
+      {{ product.name }}
+    </h2>
+    <ul>
+      <li>Nasz konsultant uzgodni z Tobą szczegóły zamówienia.</li>
+      <li>E-usługa dostosowana do twoich potrzeb.</li>
+    </ul>
+    <span class="contact-form">
+      Sposób kontaktu:
+      <mat-radio-group [(ngModel)]="contactForm" aria-label="Select an option">
+        <mat-radio-button value="phone">Telefonicznie</mat-radio-button>
+        <mat-radio-button value="mail">Mailowo</mat-radio-button>
+      </mat-radio-group>
+    </span>
+    <mat-form-field class="input-field" *ngIf="contactForm === 'mail'">
+      <mat-label>E-mail</mat-label>
+      <input
+        type="email"
+        matInput
+        [(ngModel)]="email"
+        placeholder="pat@example.com"
+      />
+    </mat-form-field>
+    <mat-form-field class="input-field" *ngIf="contactForm === 'phone'">
+      <mat-label>Numer telefonu</mat-label>
+      <input
+        type="tel"
+        matInput
+        [(ngModel)]="phone"
+        placeholder="123 456 789"
+      />
+    </mat-form-field>
+    <div class="actions">
+      <button mat-button mat-dialog-close class="cancel">Anuluj</button>
+      <button mat-button mat-dialog-close (click)="makeOrder()" class="order">
+        Zamów
+      </button>
+    </div>
+  </div>
+</ng-template>

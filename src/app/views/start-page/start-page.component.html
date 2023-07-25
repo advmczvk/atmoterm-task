@@ -1,0 +1,29 @@
+<div id="root">
+  <h2>E-usługi</h2>
+  <div class="container">
+    <div class="sub-title">
+      <h4>Oferta</h4>
+      <span class="counter">
+        {{ diagnosis_products.length + planning_products.length }}
+      </span>
+    </div>
+    <div class="diagnosis">
+      <h3>Diagnoza, prognoza</h3>
+      <div class="products">
+        <app-product-card
+          *ngFor="let product of diagnosis_products"
+          [product]="product"
+        ></app-product-card>
+      </div>
+    </div>
+    <div class="planning">
+      <h3>Planowanie, realizacja</h3>
+      <div class="products">
+        <app-product-card
+          *ngFor="let product of planning_products"
+          [product]="product"
+        ></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>
